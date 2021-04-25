@@ -2,7 +2,7 @@
 IntsallDependencies
 
 1. Node.js(14.16.1)
-2. NPM()6.14.12
+2. NPM(6.14.12)
 3. node_modules -  contains the npm packages for the tools we need
 4. Bootstrap@4.6.0
 5. angular-in-memory-web-api (npm install angular-in-memory-web-api --save)
