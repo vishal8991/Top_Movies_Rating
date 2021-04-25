@@ -1,9 +1,11 @@
 # BlockbusterMoviesList
 IntsallDependencies
 
-1. xxx
-
-2. XYZ
+1. Node.js(14.16.1)
+2. NPM()6.14.12
+3. node_modules -  contains the npm packages for the tools we need
+4. Bootstrap@4.6.0
+5. angular-in-memory-web-api (npm install angular-in-memory-web-api --save)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
