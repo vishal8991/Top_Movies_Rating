@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h5 class="text-center">User Login</h5>            
+        </div>
+        <div class="card-body">
+            <form (ngSubmit) = "onSubmit()" #movieForm="ngForm">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <label for="userid">Login ID
+                                
+                            </label>
+                            <input type="text" class="form-control" id="userid" #useridInput name="loginid" required>
+                            <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <label for="password">Password
+                                
+                            </label>
+                            <input type="password" class="form-control" id="password" #passwdInput name="password" required>
+                            <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <label for="userid">
+                                &nbsp;
+                            </label>
+                            <button class="btn btn-primary btn-block" [disabled] = "!movieForm.form.valid" type="submit">Login</button>
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div *ngIf="isError">
+                    <div class="row">
+                        <hr>
+                        <br>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <br>
+                            <label class="text-danger">
+                                {{errorStatus}}
+                            </label>                            
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

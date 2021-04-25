@@ -1,0 +1,13 @@
+
+<div class="container">
+  <button routerLink="/login" class="btn btn-secondary mt-3">Logout</button>
+  <button class="btn btn-secondary mt-3" disabled>Hi!! {{uName}}</button>
+  <h2 class="text-center text-info mt-3">Blockbuster Movies</h2>
+<div class="movies-menu">
+    <a *ngFor = "let movie of movies" 
+      routerLink="/details/{{movie.id}}">
+        <img src="{{movie.imgPath}}" alt="No image" height="60px" width="50px">
+    {{movie.name}}
+  </a>
+</div>
+</div>

@@ -1,0 +1,132 @@
+<div class="container" *ngIf="movie">
+    <div></div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <div>
+                <h5>{{movie.name | uppercase}}! Details</h5>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="vertical-align: middle;">
+                            <img src="{{movie.imgPath}}" alt="no image" class="img-thumbnail" width="240px" height="360px">                            
+                        </div>
+                        <br>
+                        <label>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{movie.name}}
+                        <br>
+                        <label>Ratings &nbsp;&nbsp;: </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{movieRatings()}}&nbsp;Star
+                        <br>
+                        <div class="text-justify" style="width: 80%;">
+                            {{movie.desc}}
+                        </div> 
+                        
+                    </div>
+                    <div class="col-md-6">
+                        
+                        <div class="form-group" *ngIf="rateMovie">
+                            <h4 style="color: #3a5026;">Add Comments & Ratings</h4>
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="col-md-8">
+                                    <label for="username">User Name</label>
+                                    <input name="username" id="username" class="form-control" [(ngModel)] = "movie.comments[0].username" placeholder="" />
+                                </div>
+                                <!-- <div class="col-md-2"></div> -->
+                            </div>
+                            
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="col-md-8">
+                                    <label>Comment</label>
+                                    <textarea name="userComments" id="txtComment" rows="3" class="form-control" [(ngModel)] = "movie.comments[0].comment"></textarea>
+                                </div>
+                                <!-- <div class="col-md-2"></div> -->
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="col-md-8">
+                                    <label for="rating">Rating</label>
+                                    <select name="rating" class="form-control" id="rating" [(ngModel)] = "movie.comments[0].rating" >
+                                        <option value="0">--Select Star--</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-md-2"></div> -->
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="col-md-8">
+                                    <label for="submit">&nbsp;</label>
+                                    <button type="submit" class="btn btn-success mt-3" (click) = "save()">Submit</button>
+                                </div>
+                                <!-- <div class="col-md-2"></div> -->
+                            </div>
+                        </div>
+                        
+                        <div class="form-group" >
+                            <h4 style="color: #3a5026;">Users Comments & Ratings</h4>
+                        </div>
+                        <div class="form-group" *ngFor="let userReview of movie.comments let i = index">
+                            <div *ngIf="!isRated(i)">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        &nbsp;&nbsp;&nbsp;Not rated by you till now...
+                                        
+                                    </div>
+                                </div>    
+                            </div>
+                            <div  *ngIf="isRated(i)">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="uname">{{i}}.&nbsp;
+                                        Name 
+                                    </label><br>
+                                </div>
+                                <div class="col-md-9">
+                                    :&nbsp;&nbsp;&nbsp; {{userReview.username}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="uname">&nbsp;&nbsp;&nbsp;
+                                        Rating 
+                                    </label><br>
+                                </div>
+                                <div class="col-md-9">
+                                    :&nbsp;&nbsp;&nbsp;{{userReview.rating}}&nbsp;Star
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="uname">&nbsp;&nbsp;&nbsp;
+                                        Comment
+                                    </label><br>
+                                </div>
+                                <div class="col-md-9">
+                                    :&nbsp;&nbsp;&nbsp;{{userReview.comment}}
+                                </div>
+                            </div>  
+                        </div>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button (click)="goBack()" class="btn btn-danger">Back</button>
+    </div>
+</div>
