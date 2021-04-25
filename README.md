@@ -7,6 +7,8 @@ IntsallDependencies
 4. Bootstrap@4.6.0
 5. angular-in-memory-web-api (npm install angular-in-memory-web-api --save)
 
+User details:
+-> You will find user login id & password in Users.json file (src\app\_files\Users.json)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
